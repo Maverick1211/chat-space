@@ -1,76 +1,53 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
 ## Usersテーブル
-|column      |  type|
+|column      |  type|option
 |:-----------|-----------:|
-|id               |*integer*|
-|name         | *string*
-|email |*string*
-|password| *string*
-|confirm password |*string*
-|group_id |*integer*
+|id               |*integer*|null false
+|name         | *string*|null false ※add_index :users, :name
+|email |*string*|null false
+|password| *string*|null false
+|confirm password |*string*|null false
+|group_id |*integer*|null false
 
-
-## Massagesテーブル
-|column      |  type|
-|:-----------|-----------:|
-|id |*integer*
-|body| *text*
-|image| *string*
-|group_id| *integer*
-|user_id |*integer*
-
-## Groupsテーブル
-|column      |  type|
-|:-----------|-----------:|
-|id |*integer*
-|name|*string*
-
-## Mediumテーブル
-|column      |  type|
-|:-----------|-----------:|
-|id |*integer*
-|user_id |*integer*
-|group_id | *integer*
-
-#### ※messagesテーブルのbodyとimageカラム以外null制約をつける
-#### ※groupsテーブルのnameカラムとusersテーブルのnameカラムにindexを貼る
-
-## Association
 #### user.rb
     has_many :messages
     has_many :groups, through: :mediums
+
+
+
+## Massagesテーブル
+|column      |  type|option
+|:-----------|-----------:|
+|id |*integer*|null false
+|body| *text*
+|image| *string*
+|group_id| *integer*|null false
+|user_id |*integer*|null false
+
 #### message.rb
     belongs_to :user
     belongs_to :group
+
+
+
+## Groupsテーブル
+|column      |  type|option
+|:-----------|-----------:|
+|id |*integer*|null false
+|name|*string*|null false ※add_index :users, :name
+
 #### group.rb
     has_many :messages
     has_many :users, through: :mediums
-#### medium.rb
+
+
+
+## groups_usersテーブル
+|column      |  type|option
+|:-----------|-----------:|
+|id |*integer*|null false
+|user_id |*integer*|null false
+|group_id | *integer*|null false
+
+#### groups_users.rb
     belongs_to :user
     belongs_to :group
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
