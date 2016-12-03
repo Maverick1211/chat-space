@@ -1,12 +1,12 @@
 ## Usersテーブル
-|column      |  type|option|
+|column      |  type|option               |
 |:-----------|-----------|-----------:|
-|id               |*integer*|null false|
+|id               |*integer*|null false   |
 |name         | *string*|null false ※add_index :users, :name|
-|email |*string*|null false|
-|password| *string*|null false|
-|confirm password |*string*|null false|
-|group_id |*integer*|null false|
+|email |*string*|null false               |
+|password| *string*|null false            |
+|confirm password |*string*|null false    |
+|group_id |*integer*|null false           |
 
 #### user association
     has_many :messages
@@ -30,9 +30,9 @@
 
 
 ## Groupsテーブル
-|column      |  type|option|
+|column      |  type|option           |
 |:-----------|-----------|-----------:|
-|id |*integer*|null false|
+|id |*integer*|null false             |
 |name|*string*|null false ※add_index :users, :name|
 
 #### group association
