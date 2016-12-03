@@ -2,13 +2,13 @@
 |column      |  type|option               |
 |:-----------|-----------|-----------:|
 |id               |*integer*|null false   |
-|name         | *string*|null false ※add_index :users, :name|
+|name         | *string*|null false ※add_index :name|
 |email |*string*|null false               |
 |password| *string*|null false            |
 |confirm password |*string*|null false    |
 |group_id |*integer*|null false           |
 
-#### user association
+#### association
     has_many :messages
     has_many :groups_users
     has_many :groups, through: :groups_users
@@ -24,7 +24,7 @@
 |group_id| *integer*|null false|
 |user_id |*integer*|null false|
 
-#### message association
+#### association
     belongs_to :user
     belongs_to :group
 
@@ -34,9 +34,9 @@
 |column      |  type|option           |
 |:-----------|-----------|-----------:|
 |id |*integer*|null false             |
-|name|*string*|null false ※add_index :users, :name|
+|name|*string*|null false ※add_index :name|
 
-#### group association
+#### association
     has_many :messages
     has_many :groups_users
     has_many :users, through: :groups_users
@@ -50,6 +50,6 @@
 |user_id |*integer*|null false|
 |group_id | *integer*|null false|
 
-#### groups_users association
+#### association
     belongs_to :user
     belongs_to :group
