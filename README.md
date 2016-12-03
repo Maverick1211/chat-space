@@ -1,6 +1,6 @@
 ## Usersテーブル
 |column      |  type|option|
-|:-----------|-----------:|
+|:-----------|-----------|-----------:|
 |id               |*integer*|null false|
 |name         | *string*|null false ※add_index :users, :name|
 |email |*string*|null false|
@@ -16,7 +16,7 @@
 
 ## Massagesテーブル
 |column      |  type|option|
-|:-----------|-----------:|
+|:-----------|-----------|-----------:|
 |id |*integer*|null false|
 |body| *text*|
 |image| *string*|
@@ -31,7 +31,7 @@
 
 ## Groupsテーブル
 |column      |  type|option|
-|:-----------|-----------:|
+|:-----------|-----------|-----------:|
 |id |*integer*|null false|
 |name|*string*|null false ※add_index :users, :name|
 
@@ -43,7 +43,7 @@
 
 ## groups_usersテーブル
 |column      |  type|option|
-|:-----------|-----------:|
+|:-----------|-----------|-----------:|
 |id |*integer*|null false|
 |user_id |*integer*|null false|
 |group_id | *integer*|null false|
