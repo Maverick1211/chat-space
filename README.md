@@ -2,7 +2,7 @@
 |column      |  type|option               |
 |:-----------|-----------|-----------:|
 |id               |*integer*|null false   |
-|name         | *string*|null false ※add_index :name|
+|name         | *string*|null false ※add_index|
 |email |*string*|null false               |
 |password| *string*|null false            |
 |confirm password |*string*|null false    |
@@ -34,7 +34,7 @@
 |column      |  type|option           |
 |:-----------|-----------|-----------:|
 |id |*integer*|null false             |
-|name|*string*|null false ※add_index :name|
+|name|*string*|null false ※add_index|
 
 #### association
     has_many :messages
