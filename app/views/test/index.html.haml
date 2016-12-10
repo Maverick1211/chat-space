@@ -1,0 +1,97 @@
+%p.layout-notice created chat-group
+.chat
+  .chat-side
+    .chat-user
+      %h5 user
+      .chat-user__actions
+        %a.chat-user__action{ href: ""}
+          %i.fa.fa-pencil-square-o
+        %a.chat-user__action{ href: ""}
+          %i.fa.fa-cog
+    %ul.chat-groups
+      %li.chat-group
+        %a.chat-group__link{ href: ""}
+          %p.chat-group__name tech::camp
+          %p.chat-group__message whatever
+  .chat-main
+    .chat-header
+      .chat-header--left
+        %h2 title
+        %i.fa_fa-pencil-square-o
+        %p.chat-header__users members
+      .chat-header--right
+        %a.chat-header__edit-btn{ href: "" } edit
+    .chat-body
+      %ul.chat-messages
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name user-name
+            %p.chat-message__time 2020/1/1 00:00:00
+          %p.chat-message__body あああああ
+          %br/
+    .chat-footer
+      .chat-footer__body
+        %textarea#message_body{ placeholder: "type a message" }
+        %label.chat-footer__file
+          %i.fa.fa-image
+      %input{ value: "Send", type: "submit" }

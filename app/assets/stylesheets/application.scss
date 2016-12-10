@@ -1,4 +1,7 @@
-@import "./reset";
 /*
  *= require font-awesome
  */
+@import "./reset";
+@import "font-awesome";
+@import "./mixin/clearfix";
+@import "./style";
