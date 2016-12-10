@@ -2,6 +2,7 @@
 	display: block;
 	text-align: center;
 	background-color: #38AEF0;
+	min-width: 1000px;
 }
 
 .chat{
@@ -26,7 +27,7 @@
 				font-size: 16px;
 				font-weight: bold;
 			}
-			.chat-user__actions{
+			&__actions{
 				float: right;
 					i{
 				        display: inline-block;
@@ -38,17 +39,20 @@
 		.chat-groups{
 			padding: 0 20px;
 			background-color: #2f3e51;
-			li{
+			.chat-group{
+				display: inline-block;
 				margin: 20px 0 40px 0;
 				p{
 					color: #ffffff;
 				}
-				p.chat-group__name{
+				&__name{
 					font-size: 15px;
+					border-bottom: none;
 				}
-				p.chat-group__message{
+				&__message{
 					margin: 5px 0 0 0;
 					font-size: 11px;
+					border-bottom: none;
 				}
 			}
 		}
@@ -65,7 +69,7 @@
 		    width: 100%;
 			border-bottom: 1px solid #eeeeee;
 			background-color: #fff;
-			&--left{
+			&__left{
 				float: left;
 				padding-left: 40px;
 				h2{
@@ -79,10 +83,10 @@
 					line-height: 20px;
 				}
 			}
-			&--right{
+			&__right{
 				float: right;
 				padding-right: 40px;
-				a.chat-header__edit-btn{
+				&__edit-btn{
 					display: inline-block;
 					float: right;
 					height: 40px;
@@ -101,14 +105,14 @@
 			width: 100%;
 			padding-bottom: 85px;
 			overflow-y: scroll;
-			ul.chat-messages{
+			.chat-messages{
 				position: absolute;
 				height: 100%;
 				left: 40px;
 				right: 40px;
 				list-style: none;
-				li.chat-message{
-					.chat-message__header{
+				.chat-message{
+					&__header{
 						@include clearfix();
 						padding: 40px 0 10px 0;
 						.chat-message__name{
@@ -128,7 +132,7 @@
 							line-height: 16px;
 						}
 					}
-					.chat-message__body{
+					&__body{
 						color: #434A54;
 						font-size: 14px;
 					}
@@ -147,7 +151,7 @@
 			padding-bottom: 20px;
 			margin-left: 300px;
 			background-color: #ddd;
-			.chat-footer__body{
+			&__body{
 				position: relative;
 				float: left;
 				height: 50px;
@@ -160,7 +164,7 @@
 						border: none;
 						color: #434A54;
 					}
-					label.chat-footer__file{
+					.chat-footer__file{
 						display: inline-block;
 						position: absolute;
 						height: 48px;
