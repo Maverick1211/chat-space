@@ -1,40 +1,37 @@
 .layout-notice{
-	background-color: #38AEF0;
-	text-align: center;
 	display: block;
+	text-align: center;
+	background-color: #38AEF0;
 }
 
 .chat{
+	display: block;
 	height: 100%;
 	width: 100%;
 	min-width: 960px;
-	display: block;
-
-
-
 	.chat-side{
+		float: left;
 		height: 100%;
 		min-height: 960px;
 		width: 300px;
 		background-color: #2f3e51;
-		float: left;
 		.chat-user{
 			height: 50px;
 			padding: 35px 20px 20px 20px;
 			color: #FFF;
 			background-color: #253141;
 			h5{
+				float: left;
+				color: #FFF;
 				font-size: 16px;
 				font-weight: bold;
-				color: #FFF;
-				float: left;
 			}
 			.chat-user__actions{
 				float: right;
 					i{
 				        display: inline-block;
+						color: #fff;
 		                font-size: 20px;
-						color: white;
 					}
 				}
 		}
@@ -50,39 +47,35 @@
 					font-size: 15px;
 				}
 				p.chat-group__message{
-					font-size: 11px;
 					margin: 5px 0 0 0;
+					font-size: 11px;
 				}
 			}
 		}
 	}
-
-
-
-
 	.chat-main{
 		display: inline-block;
 		position: relative;
+		float: left;
 		height: 100%;
 		min-height: 960px;
 		width: calc(100% - 300px);
-		float: left;
 		.chat-header{
 			height: 105px;
 		    width: 100%;
-			background-color: #fff;
 			border-bottom: 1px solid #eeeeee;
+			background-color: #fff;
 			.chat-header--left{
 				float: left;
 				padding-left: 40px;
 				h2{
+					margin: 35px 0 15px 0;
 					font-size: 16px;
 					color: #333333;
-					margin: 35px 0 15px 0;
 				}
 				p{
-					font-size: 12px;
 					color: #999999;
+					font-size: 12px;
 					line-height: 20px;
 				}
 			}
@@ -91,95 +84,93 @@
 				padding-right: 40px;
 				a.chat-header__edit-btn{
 					display: inline-block;
+					float: right;
 					height: 40px;
 					margin: 28px 0;
 					padding: 0 20px;
-					line-height: 40px;
+					border: 2px solid;
 					color: #38aef0;
 					font-size: 14px;
-					border: 2px solid;
-					float: right;
+					line-height: 40px;
 				}
 			}
 		}
 		.chat-body{
-			height: calc(100% - 190px);
-			padding-bottom: 85px;
-			width: 100%;
 			position: absolute;
+			height: calc(100% - 190px);
+			width: 100%;
+			padding-bottom: 85px;
 			overflow-y: scroll;
 			ul{
-				height: 100%;
 				position: absolute;
-				right: 40px;
+				height: 100%;
 				left: 40px;
+				right: 40px;
 				list-style: none;
 				li{
 					.chat-message__header{
 						@include clearfix();
 						padding: 40px 0 10px 0;
-						// line-height: 20px;
 						.chat-message__name{
+							float: left;
+							padding-bottom: 10px;
+							color: #434A54;
 							font-size: 16px;
 							font-weight: bold;
-							color: #434A54;
-							padding-bottom: 10px;
 							line-height: 16px;
-							float: left;
 						}
 						.chat-message__time{
-							font-size: 12px;
-							line-height: 16px;
-							color: #999999;
 							float: left;
 							margin-left: 10px;
 							padding: 2px;
+							color: #999999;
+							font-size: 12px;
+							line-height: 16px;
 						}
 					}
 					.chat-message__body{
-						font-size: 14px;
 						color: #434A54;
+						font-size: 14px;
 					}
 				}
 			}
 		}
 		.chat-footer{
+			@include clearfix();
+			display: inline;
 			position: fixed;
 			width: calc(100% - 300px);
 			bottom: 0;
-			right: 0;
 			left: 0;
-			margin-left: 300px;
+			right: 0;
 			padding-top: 20px;
 			padding-bottom: 20px;
+			margin-left: 300px;
 			background-color: #ddd;
-			display: inline;
-			@include clearfix();
 			.chat-footer__body{
+				position: relative;
+				float: left;
 				height: 50px;
 				width: calc(100% - 200px);
 				padding-left: 40px;
-				float: left;
-				position: relative;
 					#message_body{
 						display: inline;
 						width: calc(100% - 40px);
-						color: #434A54;
 						padding: 8px 10px;
 						border: none;
+						color: #434A54;
 					}
 					label.chat-footer__file{
+						display: inline-block;
 						position: absolute;
+						height: 48px;
+						width: 40px;
 						top: 0;
 						right: 0;
-						display: inline-block;
-						width: 40px;
-						height: 48px;
-						line-height: 50px;
-						text-align: center;
-						background-color: #fff;
 						border-style: none;
-						cursor: pointer;
+						text-align: center;
+						line-height: 50px;
+						background-color: #fff;
 						i.fa.fa-image{
 							display: inline-block;
 							margin-right: 10px;
@@ -188,15 +179,15 @@
 			}
 			input{
 				display: inline;
+				float: right;
 				height: 50px;
 				width: 100px;
 				margin-right: 40px;
 				margin-left: 15px;
-				float: right;
-				color: #FFF;
-				background-color: #38AEF0;
-				text-align: center;
 				border-style: none;
+				color: #FFF;
+				text-align: center;
+				background-color: #38AEF0;
 			}
 		}
 	}
