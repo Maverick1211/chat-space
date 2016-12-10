@@ -115,7 +115,7 @@
 					&__header{
 						@include clearfix();
 						padding: 40px 0 10px 0;
-						.chat-message__name{
+						&__name{
 							float: left;
 							padding-bottom: 10px;
 							color: #434A54;
@@ -123,7 +123,7 @@
 							font-weight: bold;
 							line-height: 16px;
 						}
-						.chat-message__time{
+						&__time{
 							float: left;
 							margin-left: 10px;
 							padding: 2px;
@@ -164,7 +164,7 @@
 						border: none;
 						color: #434A54;
 					}
-					.chat-footer__file{
+					&__file{
 						display: inline-block;
 						position: absolute;
 						height: 48px;
