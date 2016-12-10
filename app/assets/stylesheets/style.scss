@@ -65,7 +65,7 @@
 		    width: 100%;
 			border-bottom: 1px solid #eeeeee;
 			background-color: #fff;
-			.chat-header--left{
+			&--left{
 				float: left;
 				padding-left: 40px;
 				h2{
@@ -79,7 +79,7 @@
 					line-height: 20px;
 				}
 			}
-			.chat-header--right{
+			&--right{
 				float: right;
 				padding-right: 40px;
 				a.chat-header__edit-btn{
@@ -101,13 +101,13 @@
 			width: 100%;
 			padding-bottom: 85px;
 			overflow-y: scroll;
-			ul{
+			ul.chat-messages{
 				position: absolute;
 				height: 100%;
 				left: 40px;
 				right: 40px;
 				list-style: none;
-				li{
+				li.chat-message{
 					.chat-message__header{
 						@include clearfix();
 						padding: 40px 0 10px 0;
