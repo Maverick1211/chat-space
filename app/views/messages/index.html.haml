@@ -1,38 +1,26 @@
 .chat
-  .chat-side
-    .chat-user
-      %h5
-      #{@user.name}
-      .chat-user__actions
-        %a.chat-user__action{ href: ""}
-          %i.fa.fa-pencil-square-o
-        %a.chat-user__action{ href: ""}
-        = link_to edit_user_registration_path(current_user.id), method: :get do
-          %i.fa.fa-cog
-    %ul.chat-groups
-      %li.chat-group
-        %a.chat-group__link{ href: ""}
-          %p.chat-group__name tech::camp
-          %p.chat-group__message whatever
+  = render partial: 'common/chat-side', locals: {groups: @groups}
   .chat-main
     .chat-header
       .chat-header__left
-        %h2 title
+        %h2 #{@group.name}
         %i.fa_fa-pencil-square-o
-        %p.chat-header__users members
+        %p.chat-header__users
+        member:
+        - @users.each do |user|
+          = user.name
       .chat-header__right
-        %a.chat-header__right__edit-btn{ href: "" } edit
+        .chat-header__right__edit-btn
+          =link_to "edit", "/groups/#{@group.id}/edit", method: :get
     .chat-body
       %ul.chat-messages
-        %li.chat-message
-          .chat-message__header
-            %p.chat-message__header__name user-name
-            %p.chat-message__header__time 2020/1/1 00:00:00
-          %p.chat-message__body あああああ
-          %br/
+        = render partial: 'common/message', locals: {messages: @messages}
     .chat-footer
-      .chat-footer__body
-        %textarea#message_body{ placeholder: "type a message" }
-        %label.chat-footer__body__file
-          %i.fa.fa-image
-      %input{ value: "Send", type: "submit" }
+      =form_for [@group, @message] do |f|
+        .chat-footer__body
+          #message_body
+            =f.text_field :body, placeholder: "type a message"
+          %label.chat-footer__body__file
+            %i.fa.fa-image
+        .submit-btn
+          =f.submit "SEND"
