@@ -1,0 +1,20 @@
+.chat-side
+  .chat-user
+    %h5
+    #{current_user.name}
+    .chat-user__actions
+      .chat-user__actions__action
+        = link_to new_group_path, method: :get do
+          .fa.fa-pencil-square-o
+      .chat-user__actions__action
+        = link_to edit_user_registration_path(current_user.id), method: :get do
+          .fa.fa-cog
+  .chat-groups
+    -if groups.present?
+      - groups.each do |group|
+        .chat-group
+          %a.chat-group__link{:href => "/groups/#{group.id}/messages" }
+            .chat-group__link__name
+              #{group.name}
+            .chat-group__link__message
+              まだメッセージはありません
