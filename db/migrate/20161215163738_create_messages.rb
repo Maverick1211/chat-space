@@ -6,7 +6,6 @@ class CreateMessages < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true, null: false
       t.references :group, foreign_key: true, null: false
       t.timestamps
-      t.timestamps
     end
   end
 end
