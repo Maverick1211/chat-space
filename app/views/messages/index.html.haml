@@ -1,27 +1,17 @@
 .chat
-  .chat-side
-    .chat-user
-      %h5
-      #{@user.name}
-      .chat-user__actions
-        %a.chat-user__action{ href: ""}
-          %i.fa.fa-pencil-square-o
-        %a.chat-user__action{ href: ""}
-        = link_to edit_user_registration_path(current_user.id), method: :get do
-          %i.fa.fa-cog
-    %ul.chat-groups
-      %li.chat-group
-        %a.chat-group__link{ href: ""}
-          %p.chat-group__name tech::camp
-          %p.chat-group__message whatever
+  = render partial: 'common/chat-side', groups: @groups
   .chat-main
     .chat-header
       .chat-header__left
-        %h2 title
+        %h2 #{@group.name}
         %i.fa_fa-pencil-square-o
-        %p.chat-header__users members
+        %p.chat-header__users
+        member:
+        - @users.each do |user|
+          = user.name
       .chat-header__right
-        %a.chat-header__right__edit-btn{ href: "" } edit
+        .chat-header__right__edit-btn
+          =link_to "edit", edit_group_path(@group)
     .chat-body
       %ul.chat-messages
         %li.chat-message

@@ -29,31 +29,33 @@
 			}
 			&__actions{
 				float: right;
-					i{
-				        display: inline-block;
-						color: #fff;
-		                font-size: 20px;
+				&__action{
+					display: inline-block;
+					font-size: 20px;
+					.fa{
+						display: inline-block;
+						color: #ffffff;
 					}
 				}
+			}
 		}
 		.chat-groups{
 			padding: 0 20px;
 			background-color: #2f3e51;
 			.chat-group{
-				display: inline-block;
 				margin: 20px 0 40px 0;
-				p{
+				&__link{
 					color: #ffffff;
+					text-decoration: none;
+					&__name{
+						font-size: 15px;
+					}
+					&__message{
+						margin: 5px 0 0 0;
+						font-size: 11px;
+					}
 				}
-				&__name{
-					font-size: 15px;
-					border-bottom: none;
-				}
-				&__message{
-					margin: 5px 0 0 0;
-					font-size: 11px;
-					border-bottom: none;
-				}
+
 			}
 		}
 	}
@@ -86,7 +88,8 @@
 			&__right{
 				float: right;
 				padding-right: 40px;
-				&__edit-btn{
+				&__edit-btn {
+					a{
 					display: inline-block;
 					float: right;
 					height: 40px;
@@ -96,7 +99,9 @@
 					color: #38aef0;
 					font-size: 14px;
 					line-height: 40px;
-				}
+					text-decoration: none;
+				    }
+			    }
 			}
 		}
 		.chat-body{
