@@ -1,9 +1,9 @@
 .chat
-  = render partial: 'common/chat-side', locals: {groups: @groups}
+  = render partial: 'common/chat-side', groups: @groups
   .chat-main
     .chat-header
       .chat-header__left
-        %h2 #{@group.name}route
+        %h2 #{@group.name}
         %i.fa_fa-pencil-square-o
         %p.chat-header__users
         member:
