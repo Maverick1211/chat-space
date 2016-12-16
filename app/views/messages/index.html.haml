@@ -1,5 +1,5 @@
 .chat
-  = render partial: 'common/chat-side', locals: {groups: @groups}
+  = render partial: 'common/chat-side', groups: @groups
   .chat-main
     .chat-header
       .chat-header__left
@@ -11,7 +11,7 @@
           = user.name
       .chat-header__right
         .chat-header__right__edit-btn
-          =link_to "edit", "/groups/#{@group.id}/edit", method: :get
+          =link_to "edit", edit_group_path(@group)
     .chat-body
       %ul.chat-messages
         = render partial: 'common/message', locals: {messages: @messages}

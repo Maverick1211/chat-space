@@ -11,9 +11,9 @@ class MessagesController < ApplicationController
 	  @group = Group.find(params[:group_id])
 	  @message = Message.new(message_params)
 	  if @message.save
-	  	redirect_to group_messages_path(@group)
+	  	redirect_to group_messages_path(@group), notice: 'you created message'
 	  else
-	  	redirect_to group_messages_path(@group), notice: "please create again"
+	  	redirect_to group_messages_path(@group), notice: 'please create again'
 	  end
 	end
 
