@@ -1,14 +1,13 @@
 class MessagesController < ApplicationController
+	before_action: find_group, only: %i(index create)
 	def index
 	  @groups = current_user.groups
-	  @group = Group.find(params[:group_id])
 	  @users = @group.users
 	  @message = Message.new
-	  @messages = Message.where(group_id: params[:group_id])
+	  @messages = @group.messages.includes(:user)
 	end
 
 	def create
-	  @group = Group.find(params[:group_id])
 	  @message = Message.new(message_params)
 	  if @message.save
 	  	redirect_to group_messages_path(@group), notice: 'you created message'
