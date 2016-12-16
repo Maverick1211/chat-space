@@ -4,16 +4,17 @@
     #{current_user.name}
     .chat-user__actions
       .chat-user__actions__action
-        = link_to new_group_path, method: :get do
+        = link_to new_group_path
           .fa.fa-pencil-square-o
       .chat-user__actions__action
-        = link_to edit_user_registration_path(current_user.id), method: :get do
+        = link_to edit_user_registration_path(current_user.id)
           .fa.fa-cog
   .chat-groups
-    -if groups.present?
+    -if groups
       - groups.each do |group|
         .chat-group
-          %a.chat-group__link{:href => "/groups/#{group.id}/messages" }
+          .chat-group__link
+            =link_to group_messages_path(@group)
             .chat-group__link__name
               #{group.name}
             .chat-group__link__message

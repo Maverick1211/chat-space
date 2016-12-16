@@ -3,7 +3,7 @@
   .chat-main
     .chat-header
       .chat-header__left
-        %h2 #{@group.name}
+        %h2 #{@group.name}route
         %i.fa_fa-pencil-square-o
         %p.chat-header__users
         member:
@@ -11,7 +11,7 @@
           = user.name
       .chat-header__right
         .chat-header__right__edit-btn
-          =link_to "edit", "/groups/#{@group.id}/edit", method: :get
+          =link_to "edit", edit_group_path(@group)
     .chat-body
       %ul.chat-messages
         %li.chat-message

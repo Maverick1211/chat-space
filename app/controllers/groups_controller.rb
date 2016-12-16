@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 	def index
-		@groups = current_user.groups
+	  @groups = current_user.groups
 	end
 
 	def new
@@ -10,10 +10,10 @@ class GroupsController < ApplicationController
 	def create
 	  @group = Group.new(group_params)
 	  if @group.save
-   	     redirect_to group_messages_path(@group)
-   	  else
-   	  	redirect_to new_group_path, :notice => "please create again"
-   	  end
+   	  redirect_to group_messages_path(@group)
+   	else
+   	  redirect_to new_group_path, :notice => "please create again"
+   	end
 	end
 
 	def edit
@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
 	def update
 	  @group = Group.find(params[:id])
 	  if @group.update(group_params)
-	  	redirect_to group_messages_path(@group)
+	    redirect_to group_messages_path(@group)
 	  else
 	  	redirect_to edit_group_path(@group), notice: "please edit again"
 	  end
