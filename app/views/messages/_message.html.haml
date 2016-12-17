@@ -1,5 +1,5 @@
--if messages.present?
-  - messages.each do |message|
+-if @messages.present?
+  - @messages.each do |message|
     %li.chat-message
       .chat-message__header
         %p.chat-message__header__name

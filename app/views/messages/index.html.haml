@@ -1,5 +1,5 @@
 .chat
-  = render partial: 'common/chat-side', groups: @groups
+  = render partial: 'common/chat-side', locals: {groups: @groups}
   .chat-main
     .chat-header
       .chat-header__left
