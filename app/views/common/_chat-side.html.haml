@@ -4,17 +4,16 @@
     #{current_user.name}
     .chat-user__actions
       .chat-user__actions__action
-        = link_to new_group_path
+        = link_to new_group_path do
           .fa.fa-pencil-square-o
       .chat-user__actions__action
-        = link_to edit_user_registration_path(current_user.id)
+        = link_to edit_user_registration_path(current_user.id) do
           .fa.fa-cog
   .chat-groups
-    -if groups
+    -if groups.present?
       - groups.each do |group|
         .chat-group
-          .chat-group__link
-            =link_to group_messages_path(@group)
+          = link_to group_messages_path(group), class: "chat-group__link" do
             .chat-group__link__name
               #{group.name}
             .chat-group__link__message

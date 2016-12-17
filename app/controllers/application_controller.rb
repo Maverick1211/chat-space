@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
     #account_updateのときに、group_keyも許可する
     devise_parameter_sanitizer.permit(:account_update, keys:[:name])
   end
+  def find_group
+    @group = Group.find(params[:group_id])
+  end
 end

@@ -164,6 +164,7 @@
 				padding-left: 40px;
 					#message_body{
 						display: inline;
+						height: 34px;
 						width: calc(100% - 40px);
 						padding: 8px 10px;
 						border: none;
@@ -172,7 +173,7 @@
 					&__file{
 						display: inline-block;
 						position: absolute;
-						height: 48px;
+						height: 50px;
 						width: 40px;
 						top: 0;
 						right: 0;
@@ -186,7 +187,7 @@
 						}
 					}
 			}
-			input{
+			.submit-btn{
 				display: inline;
 				float: right;
 				height: 50px;
@@ -197,6 +198,13 @@
 				color: #FFF;
 				text-align: center;
 				background-color: #38AEF0;
+				input[type="submit"]{
+					margin: 15px 20px;
+					border: none;
+					color: #ffffff;
+					background-color: #38AEF0;
+					font-size: 15px;
+				}
 			}
 		}
 	}
