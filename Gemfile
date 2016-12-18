@@ -59,3 +59,5 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'pry-rails'
 gem 'bullet'
+
+gem 'rake', '< 11.0'
