@@ -36,45 +36,47 @@ describe MessagesController do
         get :index, group_id: group
         expect(assigns(:message)).to be_a_new(Message)
       end
-      
+
       it "renders the :index template" do
         get :index, group_id: group
         expect(response).to render_template :index
       end
     end
-    
+
     describe ' POST #create ' do
       it "assigns the requested message to @message" do
         get :index, group_id: group
         expect(assigns(:message)).to be_a_new(Message)
       end
       context "with valid attributes" do
+        let(:request) { post :create, group_id: group, message: attributes_for(:message) }
         it 'message was created succesufully' do
-          expect{ post :create, group_id: group, message: attributes_for(:message) }.to change(Message, :count).by(1)
+          expect{ request }.to change(Message, :count).by(1)
         end
 
         it "redirect_to the index" do
-          post :create, group_id: group, message: attributes_for(:message)
+          request
           expect(response).to redirect_to group_messages_path(group)
         end
 
         it "show flash[:notice] message" do
-          post :create, group_id: group, message: attributes_for(:message)
+          request
           expect(flash[:notice]).to eq ( "you created message" )
         end
       end
       context "with invalid attributes" do
+        let(:request) { post :create, group_id: group, message: attributes_for(:message ,body: nil) }
         it 'message was created unsuccesufully' do
-          expect{ post :create, group_id: group, message: attributes_for(:message ,body: nil) }.to change(Message, :count).by(0)
+          expect{ request }.to change(Message, :count).by(0)
         end
 
         it "can't redirect_to the index" do
-          post :create, group_id: group, message: attributes_for(:message ,body: nil)
+          request
           expect(response).to redirect_to group_messages_path(group)
         end
 
         it "can't show flash[:notice] message" do
-          post :create, group_id: group, message: attributes_for(:message ,body: nil)
+          request
           expect(flash[:notice]).to eq ( "please create again" )
         end
       end
