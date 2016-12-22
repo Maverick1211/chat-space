@@ -48,15 +48,35 @@ describe MessagesController do
         get :index, group_id: group
         expect(assigns(:message)).to be_a_new(Message)
       end
-    
-      it "with invalid attributes" do
-        expect{ post :create, group_id: group, message: attributes_for(:message) }.to change(Message, :count).by(1)
+      context "with valid attributes" do
+        it 'message was created succesufully' do
+          expect{ post :create, group_id: group, message: attributes_for(:message) }.to change(Message, :count).by(1)
+        end
+
+        it "redirect_to the index" do
+          post :create, group_id: group, message: attributes_for(:message)
+          expect(response).to redirect_to group_messages_path(group)
+        end
+
+        it "show flash[:notice] message" do
+          post :create, group_id: group, message: attributes_for(:message)
+          expect(flash[:notice]).to be_present
+        end
       end
-    
-      it "redirect_to the index" do
-        post :create, group_id: group, message: attributes_for(:message)
-        expect(response).to redirect_to group_messages_path(group)
-        expect(flash[:notice]).to be_present
+      context "with invalid attributes" do
+        it 'message was created unsuccesufully' do
+          expect{ post :create, group_id: group, message: attributes_for(:message ,body: nil) }.to change(Message, :count).by(0)
+        end
+
+        it "can't redirect_to the index" do
+          post :create, group_id: group, message: attributes_for(:message ,body: nil)
+          expect(response).to redirect_to group_messages_path(group)
+        end
+
+        it "can't show flash[:notice] message" do
+          post :create, group_id: group, message: attributes_for(:message ,body: nil)
+          expect(flash[:notice]).to be_present
+        end
       end
     end
   end
