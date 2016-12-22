@@ -71,16 +71,16 @@ describe MessagesController do
       
       context "with invalid attributes" do
         let(:request) { post :create, group_id: group, message: attributes_for(:message ,body: nil) }
-        it 'message was created unsuccesufully' do
+        it 'message was created succesufully' do
           expect{ request }.to change(Message, :count).by(0)
         end
 
-        it "can't redirect_to the index" do
+        it "redirect_to the index" do
           request
           expect(response).to redirect_to group_messages_path(group)
         end
 
-        it "can't show flash[:notice] message" do
+        it "show flash[:notice] message" do
           request
           expect(flash[:notice]).to eq ( "please create again" )
         end
