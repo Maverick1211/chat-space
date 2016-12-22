@@ -11,8 +11,9 @@ describe MessagesController do
     let(:user) { create(:user) }
 
     describe ' GET #index ' do
+      let(:request) { get :index, group_id: group }
       it "assigns the requested group to @group" do
-        get :index, group_id: group
+        request
         expect(assigns(:group)).to eq(group)
       end
 
@@ -24,23 +25,23 @@ describe MessagesController do
 
       it "assigns the requested users to @users" do
         users = create_list(:user, 3, groups: [group])
-        get :index, group_id: group
+        request
         expect(assigns(:users)).to eq([user] + users)
       end
 
       it "assigns the requested messages to @messages" do
         messages = create_list(:message, 3, group: group, user: user)
-        get :index, group_id: group
+        request
         expect(assigns(:messages)).to eq(messages)
       end
 
       it "assigns the requested message to @message" do
-        get :index, group_id: group
+        request
         expect(assigns(:message)).to be_a_new(Message)
       end
 
       it "renders the :index template" do
-        get :index, group_id: group
+        request
         expect(response).to render_template :index
       end
     end
@@ -50,6 +51,7 @@ describe MessagesController do
         get :index, group_id: group
         expect(assigns(:message)).to be_a_new(Message)
       end
+      
       context "with valid attributes" do
         let(:request) { post :create, group_id: group, message: attributes_for(:message) }
         it 'message was created succesufully' do
@@ -66,6 +68,7 @@ describe MessagesController do
           expect(flash[:notice]).to eq ( "you created message" )
         end
       end
+      
       context "with invalid attributes" do
         let(:request) { post :create, group_id: group, message: attributes_for(:message ,body: nil) }
         it 'message was created unsuccesufully' do
