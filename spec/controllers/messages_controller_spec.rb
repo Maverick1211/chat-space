@@ -60,7 +60,7 @@ describe MessagesController do
 
         it "show flash[:notice] message" do
           post :create, group_id: group, message: attributes_for(:message)
-          expect(flash[:notice]).to be_present
+          expect(flash[:notice]).to eq ( "you created message" )
         end
       end
       context "with invalid attributes" do
@@ -75,7 +75,7 @@ describe MessagesController do
 
         it "can't show flash[:notice] message" do
           post :create, group_id: group, message: attributes_for(:message ,body: nil)
-          expect(flash[:notice]).to be_present
+          expect(flash[:notice]).to eq ( "please create again" )
         end
       end
     end
