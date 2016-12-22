@@ -6,9 +6,9 @@ describe MessagesController do
     before :each do
       sign_in user
     end
-      let(:group) { create(:group, users: [user]) }
-      let(:message) { create(:message, user: user, group: group) }
-      let(:user) { create(:user) }
+    let(:group) { create(:group, users: [user]) }
+    let(:message) { create(:message, user: user, group: group) }
+    let(:user) { create(:user) }
     describe ' GET #index ' do
       it "assigns the requsested contact to @group" do
         get :index, group_id: group
@@ -49,6 +49,7 @@ describe MessagesController do
       it "redirect_to the index" do
         post :create, group_id: group, message: attributes_for(:message)
         expect(response).to redirect_to group_messages_path(group)
+        expect(flash[:notice]).to be_present
       end
     end
   end
