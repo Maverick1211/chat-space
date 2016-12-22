@@ -45,6 +45,14 @@
     &--right {
       float: right;
       width: 70%;
+      input[type = "text"]{
+        width: 100%;
+        line-height: 30px;
+      }
+      .chat-group-form__search{
+        line-height: 50px;
+        padding-left: 15px;
+      }
     }
     &__label {
       display: block;
@@ -88,5 +96,11 @@
     color: #fff;
     background-color: #38aef0;
     border: 0;
+    margin-left: 15px;
+    input[type = "submit"]{
+      background-color: #38aef0;
+      color: #ffffff;
+      border: none;
+    }
   }
 }
