@@ -6,6 +6,7 @@ describe Message do
       message.valid?
       expect(message.errors[:body]).to include("can't be blank")
     end
+
     it "is valid with body" do
       message = build(:message, body: "aaaaa")
       expect(message).to be_valid
