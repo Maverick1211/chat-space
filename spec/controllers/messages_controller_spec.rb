@@ -1,13 +1,15 @@
 require 'rails_helper'
 
 describe MessagesController do
-  describe "when_user_signed_in" do
+  describe "when user signed in" do
     before :each do
       sign_in user
     end
+
     let(:group) { create(:group, users: [user]) }
     let(:message) { create(:message, user: user, group: group) }
     let(:user) { create(:user) }
+
     describe ' GET #index ' do
       it "assigns the requested group to @group" do
         get :index, group_id: group
@@ -82,7 +84,8 @@ describe MessagesController do
       end
     end
   end
-  describe "sign_out_user" do
+
+  describe "when sign out user" do
     it "redirect to /users/sign_in" do
       group = create(:group)
       get :index, group_id: group
