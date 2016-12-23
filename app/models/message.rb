@@ -6,7 +6,7 @@ class Message < ApplicationRecord
 
 	def to_json
 	  { body: body,
-	  	name: user.name
-	  	time: created_at }
+	  	name: user.name,
+	  	time: created_at.strftime('%Y:%m:%d %H:%M') }
 	end
 end
