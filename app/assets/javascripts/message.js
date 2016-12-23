@@ -11,13 +11,13 @@ $(function() {
   $('.chat-footer').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_body');
-    var message = textField.val();
+    var body = textField.val();
     $.ajax({
       type: 'POST',
       url: './messages',
       data: {
         message: {
-          body: message
+          body: body
         }
       },
       dataType: 'json'
