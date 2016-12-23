@@ -10,12 +10,9 @@ class MessagesController < ApplicationController
 	def create
 	  @message = Message.new(message_params)
     if @message.save
-	    message_body = @message.body
-	    message_name = @message.user.name
-	    message_time = @message.created_at
       respond_to do |format|
         format.html { redirect_to group_messages_path(@group) }
-        format.json { render json: { message_body: message_body, message_name: message_name, message_time: message_time } }
+        format.json { render json: { message: @message.to_json } }
       end
     else
       render :index, notice: 'please create again'
