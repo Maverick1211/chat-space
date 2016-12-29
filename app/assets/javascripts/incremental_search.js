@@ -13,6 +13,7 @@ $(window).on('load', function(){
     return html;
   }
 
+
   function buildAddHTML(user_id, user_name) {
     var html;
     var input = $('<input name="group[user_ids][]" type="hidden">').attr({'value': user_id})
@@ -21,6 +22,7 @@ $(window).on('load', function(){
     var html = $('<div class="chat-group-user clearfix">').attr({'id': "chat-group-user-remove-" + user_id}).append(input).append(user_name_tag).append(a_tag)
     return html;
   }
+
 
   var preFunc = null,
   ajaxSearch = function(input) {
@@ -35,6 +37,7 @@ $(window).on('load', function(){
     .done(function(data) {
       html = buildHTML(data.users);
       $("#user-search-result").html(html);
+
       $(document).on("click", ".chat-group-user__btn--add", function(e){
         e.preventDefault();
         $(this).parent().remove();
@@ -43,6 +46,7 @@ $(window).on('load', function(){
         add_member_html = buildAddHTML(user_id, user_name);
         $("#chat-group-users").append(add_member_html);
       });
+
       $(document).on("click", ".chat-group-user__btn--remove", function(e){
         e.preventDefault();
         $(this).parent().remove();
