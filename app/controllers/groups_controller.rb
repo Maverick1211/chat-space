@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
 	end
 
 	def search
-	  @users = User.where('name LIKE(?)',"%#{search_params[:keyword]}%").order('name ASC')
+	  @users = User.where('name LIKE(?)',"%#{search_params[:keyword]}%").where.not(id: current_user.id).order('name ASC')
 	  respond_to do |format|
         format.html { redirect_to new_group_path(@group) }
         format.json { render json: { users: @users } }
