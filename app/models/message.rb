@@ -11,6 +11,6 @@ class Message < ApplicationRecord
 	end
 
 	def display_time
-		created_at.strftime('%Y:%m:%d %H:%M')
+	  created_at.strftime('%Y:%m:%d %H:%M')
 	end
 end
