@@ -1,10 +1,14 @@
+  function each_user_resultsHTML(user) {
+    return  '<div class="chat-group-user clearfix", id="chat-group-user-add-'+ user.id + '">' +
+              '<p class="chat-group-user__name">' +
+              user.name +
+              '</p>' +
+              '<a class = "user-search-add chat-group-user__btn chat-group-user__btn--add", id="chat-group-user-add-url-'+ user.id + '"data-user-id="' + user.id + '"data-user-name="' + user.name + '">追加' +
+              '</a>' +
+            '</div>';
+  }
+
   function search_resultHTML(users) {
-    function each_user_resultsHTML(user) {
-      var user_name = $('<p class="chat-group-user__name">').append(user.name);
-      var a_tag = $('<a href="", class = "user-search-add chat-group-user__btn chat-group-user__btn--add">').attr({'id': "chat-group-user-add-url-" + user.id}).attr({ 'data-user-id': user.id, 'data-user-name': user.name }).append("追加")
-      var list = $('<div class="chat-group-user clearfix">').attr({'id': "chat-group-user-add-" + user.id}).append(user_name).append(a_tag)
-      return  list.prop('outerHTML');
-    }
     var lists = users.reduce(function(prev, user, index){
       return prev + each_user_resultsHTML(user);
     },"");
@@ -14,11 +18,14 @@
 
 
   function add_resultHTML(user) {
-    var input = $('<input name="group[user_ids][]" type="hidden">').attr({'value': user.id})
-    var user_name_tag = $('<p class="chat-group-user__name">').append(user.name);
-    var a_tag = $('<a href="", class = "user-search-add chat-group-user__btn chat-group-user__btn--remove">').attr({'id': "chat-group-user-remove-url-" + user.id}).attr({ 'data-user-id': user.id}).append("削除")
-    var html = $('<div class="chat-group-user clearfix">').attr({'id': "chat-group-user-remove-" + user.id}).append(input).append(user_name_tag).append(a_tag)
-    return html;
+    return  '<div class="chat-group-user clearfix", id="chat-group-user-remove-'+ user.id + '">' +
+              '<input name="group[user_ids][]" type="hidden" value="' + user.id + '">' +
+              '<p class="chat-group-user__name">' +
+                user.name +
+              '</p>' +
+              '<a class = "user-search-add chat-group-user__btn chat-group-user__btn--remove" id="chat-group-user-remove-url-' + user.id + '"data-user-id="' + user.id + '">削除' +
+              '</a>' +
+            '</div>';
   };
 
 
