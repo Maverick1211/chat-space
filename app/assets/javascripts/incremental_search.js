@@ -1,16 +1,19 @@
   function search_resultHTML(users) {
-    var lists = [];
-    $.each(users, function(index, user){
+    function each_user_resultsHTML(user) {
       var user_name = $('<p class="chat-group-user__name">').append(user.name);
       var a_tag = $('<a href="", class = "user-search-add chat-group-user__btn chat-group-user__btn--add">').attr({'id': "chat-group-user-add-url-" + user.id}).attr({ 'data-user-id': user.id, 'data-user-name': user.name }).append("追加")
       var list = $('<div class="chat-group-user clearfix">').attr({'id': "chat-group-user-add-" + user.id}).append(user_name).append(a_tag)
-      var list = list.prop('outerHTML');
-      lists.push(list);
-    });
-    reduce_lists = lists.reduce(function(previousValue, currentValue, index, array){
-      return previousValue + currentValue;
-    });
-    var html = $(reduce_lists).wrapAll('<div id="user-search-result">');
+      return  list.prop('outerHTML');
+    }
+    var lists = users.reduce(function(prev, user, index){
+      console.log(index);
+      console.log(prev);
+      console.log(user);
+      return prev + each_user_resultsHTML(user);
+    },"");
+    console.log(users);
+    console.log(lists);
+    var html = $(lists).wrapAll('<div id="user-search-result">');
     return html;
   };
 
@@ -24,7 +27,7 @@
   };
 
 
-  ajaxSearch = function(input) {
+  function ajaxSearch(input) {
     $.ajax({
       url: "/search",
       type: "GET",
