@@ -9,7 +9,7 @@
   }
 
   function search_resultHTML(users) {
-    var lists = users.reduce(function(prev, user, index){
+    var lists = users.reduce(function(prev, user){
       return prev + each_user_resultsHTML(user);
     },"");
     var html = $(lists).wrapAll('<div id="user-search-result">');
