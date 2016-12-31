@@ -6,13 +6,8 @@
       return  list.prop('outerHTML');
     }
     var lists = users.reduce(function(prev, user, index){
-      console.log(index);
-      console.log(prev);
-      console.log(user);
       return prev + each_user_resultsHTML(user);
     },"");
-    console.log(users);
-    console.log(lists);
     var html = $(lists).wrapAll('<div id="user-search-result">');
     return html;
   };
