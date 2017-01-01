@@ -12,12 +12,15 @@ $(function() {
     e.preventDefault();
     var textField = $('#message_body');
     var body = textField.val();
+    var fileField = $('#message_avatar');
+    var avatar = fileField.val();
     $.ajax({
       type: 'POST',
       url: './messages',
       data: {
         message: {
           body: body
+          avatar: avatar
         }
       },
       dataType: 'json'

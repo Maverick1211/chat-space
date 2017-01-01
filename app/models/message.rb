@@ -3,10 +3,11 @@ class Message < ApplicationRecord
 	belongs_to :user
 	belongs_to :group
 	validates :body, presence: true
-
+  mount_uploader :avatar, AvatarUploader
 	def to_json
 	  { body: body,
 	  	name: user.name,
+	  	avatar: avatar,
 	  	time: display_time }
 	end
 
