@@ -8,6 +8,8 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+/.env
 /log/*
 !/log/.keep
 /tmp
+/uploads

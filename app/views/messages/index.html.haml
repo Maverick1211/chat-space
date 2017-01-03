@@ -20,6 +20,7 @@
         .chat-footer__body
           = f.text_field :body, placeholder: "type a message"
           %label.chat-footer__body__file
+            = f.file_field :avatar
             %i.fa.fa-image
         .submit-btn
           = f.submit "SEND"

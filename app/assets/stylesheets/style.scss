@@ -184,9 +184,14 @@
 						text-align: center;
 						line-height: 50px;
 						background-color: #fff;
+						input[type="file"]{
+							display: none;
+						}
 						i.fa.fa-image{
 							display: inline-block;
 							margin-right: 10px;
+							text-rendering: auto;
+							-webkit-font-smoothing: antialiased;
 						}
 					}
 			}
