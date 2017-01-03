@@ -1,3 +1,13 @@
+:javascript
+  function reload(){
+    $.ajax({
+      url:'./messages',
+      type: 'GET'
+    });
+  };
+  $(window).on('load', function(){
+    setInterval("reload()", 1000*20);
+  });
 .chat
   = render partial: 'common/chat-side', locals: {groups: @groups}
   .chat-main
