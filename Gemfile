@@ -65,3 +65,7 @@ gem 'dotenv-rails'
 gem 'config'
 gem 'fog'
 gem 'rmagick', '~> 2.16.0'
+
+group :production do
+  gem 'unicorn'
+end
