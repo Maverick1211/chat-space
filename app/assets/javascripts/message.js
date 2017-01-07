@@ -19,7 +19,7 @@ $(function() {
       url: './messages',
       data: {
         message: {
-          body: body
+          body: body,
           avatar: avatar
         }
       },
