@@ -17,13 +17,10 @@ $(function() {
     $.ajax({
       type: 'POST',
       url: './messages',
-      data: {
-        message: {
-          body: body,
-          avatar: avatar
-        }
-      },
-      dataType: 'json'
+      data: new FormData($(".chat-footer")[0]),
+      processData: false,
+      contentType: false
+      debugger;
     })
     .done(function(data) {
       var html = buildHTML(data.message);

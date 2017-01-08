@@ -64,7 +64,7 @@ gem 'carrierwave'
 gem 'dotenv-rails'
 gem 'config'
 gem 'fog'
-gem 'rmagick', '~> 2.16.0'
+gem 'rmagick'
 
 group :production do
   gem 'unicorn'
