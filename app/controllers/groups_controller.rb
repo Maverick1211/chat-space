@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-	before_action :find_group, only: %i(edit update)
+	before_action :find_id, only: %i(edit update)
 	def index
 	  @groups = current_user.groups
 	end
@@ -44,4 +44,9 @@ class GroupsController < ApplicationController
 	def group_params
 	  params.require(:group).permit(:name, { user_ids: [] })
 	end
+
+  def find_id
+    @group = Group.find(params[:id])
+    @users = @group.users.reject {|user| current_user.id == user.id }
+  end
 end

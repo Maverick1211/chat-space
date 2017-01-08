@@ -1,3 +1,8 @@
+:javascript
+  $(document).on("click", ".chat-group-user__btn--remove", function(e){
+  e.preventDefault();
+    $(this).parent().remove();
+  });
 = form_for (@group) do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
@@ -16,12 +21,19 @@
         #user-search-result
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      .chat-group-form__label 
+      .chat-group-form__label
         = f.label :name, "チャットメンバー"
     .chat-group-form__field--right
       #chat-group-users
         .chat-group-user.clearfix
           %input{name: "group[user_ids][]", type: "hidden", value: "#{current_user.id}"}
+          - if users
+            - users.each do |user|
+              .chat-group-user.clearfix{id: "chat-group-user-remove-#{user.id}"}
+                %input{name: "group[user_ids][]", type: "hidden", value: "#{user.id}"}
+                %p.chat-group-user__name #{user.name}
+                %a.user-search-add.chat-group-user__btn.chat-group-user__btn--remove{id: "chat-group-user-remove-url-#{user.id}", data: {user: {id: "#{user.id}"}}} 削除
+                %br/
           %p.chat-group-user__name #{current_user.name}
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
