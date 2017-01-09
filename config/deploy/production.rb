@@ -6,7 +6,7 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 server "52.199.15.8", user: "tensho", roles: %w{app db web}
-set :ssh_options, keys: '~/.ssh/chat-space_aws_rsa'
+set :ssh_options, keys: '/home/tensho/.ssh/chat-space_key_rsa'
 
 
 # role-based syntax

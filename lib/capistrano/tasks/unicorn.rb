@@ -1,4 +1,4 @@
-mespace :unicorn do
+namespace :unicorn do
 	  task :environment do
 		      set :unicorn_pid,    "#{current_path}/tmp/pids/unicorn.pid"
 		          set :unicorn_config, "#{current_path}/config/unicorn/production.rb"
@@ -49,7 +49,7 @@ mespace :unicorn do
 			       
 			        desc "Stop unicorn server immediately"
 				  task force_stop: :environment do
-	:			      on roles(:app) do
+				      on roles(:app) do
 						            force_stop_unicorn
 							        end
 					        end
