@@ -8,7 +8,7 @@ set :repo_url, "https://github.com/Maverick1211/chat-space.git"
 set :branch, 'master'
 
 # deploy先のディレクトリに変更してください
-set :deploy_to, '~/chat-space'
+set :deploy_to, '/home/tensho/chat-space'
 
 # シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('.env')
@@ -24,6 +24,10 @@ set :rbenv_ruby, '2.3.1'
 
 #出力するログのレベル。
 set :log_level, :debug
+
+#set :ssh_options, {
+#  config: false
+#}
 
 namespace :deploy do
   desc 'Restart application'
