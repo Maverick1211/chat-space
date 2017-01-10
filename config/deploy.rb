@@ -25,9 +25,9 @@ set :rbenv_ruby, '2.3.1'
 #出力するログのレベル。
 set :log_level, :debug
 
-set :ssh_options, {
-  config: false
-}
+#set :ssh_options, {
+#  config: false
+#}
 
 namespace :deploy do
   desc 'Restart application'
