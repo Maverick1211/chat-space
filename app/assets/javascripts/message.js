@@ -20,7 +20,6 @@ $(function() {
       data: new FormData($(".chat-footer")[0]),
       processData: false,
       contentType: false
-      debugger;
     })
     .done(function(data) {
       var html = buildHTML(data.message);
