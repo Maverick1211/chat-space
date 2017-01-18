@@ -3,7 +3,7 @@
   e.preventDefault();
     $(this).parent().remove();
   });
-= form_for (@group) do |f|
+= form_for (@group, html: {multipart: true}) do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       .chat-group-form__label

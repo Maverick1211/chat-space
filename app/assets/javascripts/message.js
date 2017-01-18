@@ -6,7 +6,7 @@ $(function() {
     var header = $('<div class ="chat-message__header">').append(name).append(time);
     var html = $('<li class ="chat-message">').append(header).append(body);
     return html;
-  }
+  };
 
   $('.chat-footer').on('submit', function(e) {
     e.preventDefault();
@@ -16,8 +16,8 @@ $(function() {
     var avatar = fileField.val();
     $.ajax({
       type: 'POST',
-      url: './messages',
-      data: new FormData($(".chat-footer")[0]),
+      url: './messages.json',
+      data: new FormData($(".new_message")[0]),
       processData: false,
       contentType: false
     })
@@ -26,8 +26,10 @@ $(function() {
       chat_messages = $('.chat-messages').append(html);
       textfield = textField.val('');
     })
-    .fail(function() {
+    .fail(function(data) {
+      console.log(data);
       alert('please create again');
     });
+    return false;
   });
 });

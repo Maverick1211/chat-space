@@ -12,15 +12,15 @@ CarrierWave.configure do |config|
     when 'production'
       config.storage :fog
       config.fog_directory = "tensho-space"
-      config.asset_host = "https://s3-website-ap-northeast-1.amazonaws.com/tensho-space"
+      config.asset_host = "https://s3-ap-northeast-1.amazonaws.com/tensho-space"
     when 'development'
       config.storage :fog
       config.fog_directory = "tensho-space"
-      config.asset_host = "https://s3-website-ap-northeast-1.amazonaws.com/tensho-space"
+      config.asset_host = "https://s3-ap-northeast-1.amazonaws.com/tensho-space"
     when 'test'
       config.storage :file
       config.fog_directory = "tensho-space"
-      config.asset_host = "https://s3-website-ap-northeast-1.amazonaws.com/tensho-space"
+      config.asset_host = "https://s3-ap-northeast-1.amazonaws.com/tensho-space"
   end
 end
 
