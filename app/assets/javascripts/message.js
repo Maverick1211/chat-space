@@ -1,6 +1,11 @@
 $(function() {
   function buildHTML(message) {
-    var body = $('<p class ="chat-message__body">').append(message.body);
+    var avatar = '<image src="'+ message.avatar.url +'">'
+    // console.log(message);
+    // console.log(message.avatar)
+    // console.log(avatar);
+    // debugger;
+    var body = $('<p class ="chat-message__body">').append(message.body).append("<br/>").append(avatar);
     var name = $('<p class ="chat-message__header__name">').append(message.name);
     var time = $('<p class ="chat-message__header__time">').append(message.time);
     var header = $('<div class ="chat-message__header">').append(name).append(time);
