@@ -63,8 +63,9 @@
 $(window).on('load', function(){
   var preFunc = null;
   $('.chat-group-form__search').on('keyup', function(){
-    input = $.trim($('.search_form').val());
+    input = $.trim($('#user-search-field').val());
+    console.log(input);
     clearTimeout(preFunc);
-    preFunc = setTimeout(ajaxSearch(input), 500);
+    ajaxSearch(input);
   });
 });
