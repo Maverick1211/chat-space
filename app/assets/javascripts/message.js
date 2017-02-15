@@ -1,10 +1,6 @@
 $(function() {
   function buildHTML(message) {
     var avatar = '<image src="'+ message.avatar.url +'">'
-    // console.log(message);
-    // console.log(message.avatar)
-    // console.log(avatar);
-    // debugger;
     var body = $('<p class ="chat-message__body">').append(message.body).append("<br/>").append(avatar);
     var name = $('<p class ="chat-message__header__name">').append(message.name);
     var time = $('<p class ="chat-message__header__time">').append(message.time);
@@ -20,8 +16,8 @@ $(function() {
     var fileField = $('#message_avatar');
     var avatar = fileField.val();
     $.ajax({
-      type: 'POST',
-      url: './messages.json',
+      type: form.attr('method'),
+      url: form.attr('action'),
       data: new FormData($(".new_message")[0]),
       processData: false,
       contentType: false
@@ -32,7 +28,6 @@ $(function() {
       textfield = textField.val('');
     })
     .fail(function(data) {
-      console.log(data);
       alert('please create again');
     });
     return false;
